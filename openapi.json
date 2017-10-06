@@ -13,7 +13,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemasWindSpeedData"
+                  "type": "array",
+                  "items": {}
                 }
               }
             }
@@ -52,6 +53,41 @@
           "airTemperature": {
             "format": "float",
             "description": "The air temperature in degrees celcius at the time the recording was made by the weather station.",
+            "type": "number"
+          },
+          "relativeHumidity": {
+            "description": "The relative humidity at the time the recording was made by the weather station. Presented as a percentage.",
+            "type": "number"
+          },
+          "soilTemperature": {
+            "description": "The soil temperature in degrees celcuis at the time the recording was made by the weather station. Some stations are not equipped with soil sensors.",
+            "type": "number"
+          },
+          "solarIrradiance": {
+            "description": "Global solar irradiance in W/m2 - see: http://www.bom.gov.au/climate/austmaps/solar-radiation-glossary.shtml",
+            "type": "number"
+          },
+          "rainfall": {
+            "description": "The rainfall that occurred in the last minute in millimetres.",
+            "type": "number"
+          },
+          "dewPoint": {
+            "description": "The atmospheric temperature (varying according to pressure and humidity) below which water droplets begin to condense and dew can form.",
+            "type": "number"
+          },
+          "deltaT": {
+            "description": "Delta T is an important indicator for acceptable spraying conditions. It is indicative of evaporation rate and droplet lifetime. Delta T is calculated by subtracting the wet bulb temperature from the dry bulb temperature. When applying pesticides, Delta T should ideally be between 2 and 8, and not greater than 10.",
+            "type": "number"
+          },
+          "windSpeed": {
+            "description": "A collection of wind speed readings ordered by height from group. The first element will be the closest to the ground.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WindSpeedData"
+            }
+          },
+          "windDirection": {
+            "description": "The collection of wind direction readings in azimuth degrees. Ordered by sensor height from the ground, from lowest to highest.",
             "type": "number"
           }
         }
