@@ -1,1 +1,51 @@
-{"info":{"title":"Test","description":"test","version":"1.0.0"},"openapi":"3.0.0"}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Test",
+    "description": "test",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/station": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemasWindSpeedData"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "station",
+          "in": "query"
+        },
+        {
+          "name": "Rws",
+          "in": "query"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "WindSpeedData": {
+        "properties": {
+          "height": {
+            "description": "The height of the sensor in meters.",
+            "type": "number"
+          },
+          "value": {
+            "description": "The wind speed in kilometres per hour",
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}
