@@ -6,7 +6,7 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/station": {
+    "/stations": {
       "get": {
         "responses": {
           "200": {
@@ -24,10 +24,6 @@
         {
           "name": "station",
           "in": "query"
-        },
-        {
-          "name": "Rws",
-          "in": "query"
         }
       ]
     }
@@ -42,6 +38,20 @@
           },
           "value": {
             "description": "The wind speed in kilometres per hour",
+            "type": "number"
+          }
+        }
+      },
+      "StationData": {
+        "properties": {
+          "dateTime": {
+            "format": "date-time",
+            "description": "The date and time the recording was made by the weather station in ISO 8601 format.",
+            "type": "string"
+          },
+          "airTemperature": {
+            "format": "float",
+            "description": "The air temperature in degrees celcius at the time the recording was made by the weather station.",
             "type": "number"
           }
         }
